@@ -1,0 +1,116 @@
+*,
+*:before,
+*:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background: url(https://d36tnp772eyphs.cloudfront.net/blogs/1/2011/05/thailand-1200x819.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.menu {
+    background: #fff;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    position: fixed;
+    top: 25px;
+    right: 25px;
+}
+
+.hamburguer {
+    position: relative;
+    display: block;
+    background: #000;
+    width: 30px;
+    height: 2px;
+    top: 29px;
+    left: 15px;
+    transition: .4s ease-in-out;
+}
+
+.hamburguer:before,
+.hamburguer:after {
+    background: #000;
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: .4s ease-in-out;
+}
+
+.hamburguer:before {
+    top: -10px;
+}
+
+.hamburguer:after {
+    bottom: -10px;
+}
+
+input {
+    display: none;
+}
+
+input:checked~label .hamburguer {
+    transform: rotate(45deg);
+}
+
+input:checked~label .hamburguer:before {
+    transform: rotate(90deg);
+    top: 0;
+}
+
+input:checked~label .hamburguer:after {
+    transform: rotate(90deg);
+    bottom: 0;
+}
+
+.menu {
+    cursor: pointer;
+    box-shadow: 0 0 0 0 #000, 0 0 0 0 #000;
+    transition: box-shadow 1.1s cubic-bezier(.19, 1, .22, 1);
+    opacity: .8;
+}
+
+
+/*A ANIMAÇÃO DO MENU ***/
+
+input:checked~label .menu {
+    box-shadow: 0 0 0 130vw #000, 0 0 0 130vh #000;
+}
+
+
+/*APARECER O MENU AO CLICAR ***/
+
+input:checked~ul {
+    opacity: 1;
+}
+
+
+/*A ANIMAÇÃO E ESTILO DO MENU ***/
+
+ul {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    list-style: none;
+    font-size: 30px;
+    opacity: 0;
+    transition: .25s .1s cubic-bezier(0, 1.07, 0, 1.02);
+    z-index: 2;
+}
+
+a {
+    color: #fff;
+    display: block;
+    margin-bottom: 1em;
+    text-decoration: none;
+}
